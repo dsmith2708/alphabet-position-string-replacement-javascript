@@ -3,11 +3,17 @@ function convertToAlphabetIndex() {
     let stringToConvert = document.getElementById('string-input').value;
 
     // Sanitize string with regex and toLowerCase
-    stringToConvert = stringToConvert.replace(/[^a-z]/gmi, "").replace(/\s+/g, "");
-    stringToConvert = stringToConvert.toLowerCase();
+    stringToConvert = sanitiseString(stringToConvert)
 
     // Get and place final output in output paragraph tag
     document.getElementById('output').innerText = getOutputString(stringToConvert);
+}
+
+//Sanitise string using regex and toLowerCase function
+function sanitiseString(stringToSanitise) {
+    stringToSanitise = stringToSanitise.replace(/[^a-z]/gmi, "").replace(/\s+/g, "");
+    stringToSanitise = stringToSanitise.toLowerCase();
+    return stringToSanitise;
 }
 
 // Construct output string using by getting position in alphabet using charCodeAt
