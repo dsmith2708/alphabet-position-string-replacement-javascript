@@ -6,12 +6,23 @@ function convertToAlphabetIndex() {
     stringToConvert = stringToConvert.replace(/[^a-z]/gmi, "").replace(/\s+/g, "");
     stringToConvert = stringToConvert.toLowerCase();
 
-    // Construct output string using by getting position in alphabet using charCodeAt
+    // Get and place final output in output paragraph tag
+    document.getElementById('output').innerText = getOutputString(stringToConvert);
+}
+
+// Construct output string using by getting position in alphabet using charCodeAt
+function getOutputString(sanitisedString) {
+
+    // Return message if no valid unput is found
+    if( !sanitisedString.length ) {
+        return 'No valid alphabet characters found, please enter a valid string';
+    }
+
+    // Construct final output if input is valid
     let convertedString = '';
-    [...stringToConvert].forEach((char) => {
+    [...sanitisedString].forEach((char) => {
         convertedString += (char.charCodeAt(0) - 96 + ' ');
     });
 
-    // Place final output in output paragraph tag
-    document.getElementById('output').innerText = convertedString;
+    return convertedString;
 }
