@@ -1,4 +1,5 @@
 function convertToAlphabetIndex() {
     let stringToConvert = document.getElementById('string-input').value;
-    console.log('string to convert: ', stringToConvert);
+    stringToConvert = stringToConvert.replace(/[^a-z]/gmi, "").replace(/\s+/g, "");
+    console.log('sanitized string: ', stringToConvert);
 }
