@@ -14,7 +14,7 @@ function convertToAlphabetIndex() {
 function getOutputString(sanitisedString) {
 
     // Return message if no valid unput is found
-    if( !sanitisedString.length ) {
+    if( sanitisedString === undefined || !sanitisedString.length ) {
         return 'No valid alphabet characters found, please enter a valid string';
     }
 
