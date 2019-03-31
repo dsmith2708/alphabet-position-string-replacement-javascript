@@ -6,12 +6,12 @@ function convertToAlphabetIndex() {
     stringToConvert = stringToConvert.replace(/[^a-z]/gmi, "").replace(/\s+/g, "");
     stringToConvert = stringToConvert.toLowerCase();
 
-    // Construct output string using by gtting position in alphabet using charCodeAt
+    // Construct output string using by getting position in alphabet using charCodeAt
     let convertedString = '';
     [...stringToConvert].forEach((char) => {
-        console.log('position of ', char, ' in alphabet is: ', char.charCodeAt(0) - 96);
         convertedString += (char.charCodeAt(0) - 96 + ' ');
     });
 
-    console.log('final string: ', convertedString);
+    // Place final output in output paragraph tag
+    document.getElementById('output').innerText = convertedString;
 }
